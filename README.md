@@ -1,24 +1,11 @@
-# README
+Lab Tracker
+========
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+### Contributors
+- Alphonso Tran | @AlphonsoTran
+- Elsha Kwee | @Elshaek
+- Faye Hayes | @Fhayes301
 
-Things you may want to cover:
+### Description:
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Lab Tracker is an easy to use experiment tracking system for a laboratory. It streamlines communication and collaboration among lab staff and faculty by providing a platform to share proposals, keep track of experiments, and quick access to the latest updates on current proposals and experiments.
