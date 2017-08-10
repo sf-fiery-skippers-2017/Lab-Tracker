@@ -1,0 +1,23 @@
+<h1><%= @proposal.title %></h1>
+
+<h4> Status:</h4>
+
+  <p> <%= @proposal.status %></p>
+
+<h4> Summary:</h4>
+
+  <p> <%= @proposal.summary %> </p>
+
+<h4> Hypothesis:</h4>
+
+  <p> <%= @proposal.hypothesis %> </p>
+
+<h4> Experiments:</h4>
+
+  <%= render @experiments %>
+
+
+<div class="comments">
+  <h4> Comments </h4>
+  <%= render @comments %>
+</div>
