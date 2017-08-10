@@ -4,4 +4,5 @@ class User < ApplicationRecord
   has_many :experiments, foreign_key: :lab_staff_id
   has_many :proposals, foreign_key: :pi_id
 
+  has_secure_password
 end
