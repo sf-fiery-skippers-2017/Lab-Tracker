@@ -53,6 +53,7 @@ ActiveRecord::Schema.define(version: 20170809235518) do
   end
 
   create_table "proposals", force: :cascade do |t|
+    t.string "title", null: false
     t.text "summary", null: false
     t.text "hypothesis", null: false
     t.string "status", default: "open"
