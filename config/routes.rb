@@ -6,6 +6,7 @@ Rails.application.routes.draw do
 
   resources :experiments do
     resources :procedures
+    resources :observations
   end
   resources :users
 
