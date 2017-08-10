@@ -1,7 +1,5 @@
 ### Pull Request Workflow
 
-Make sure to set your git user and email so you get credit for your work
-
 - Create a branch named for the feature you are working on
 - Write Code
 - Commit your code and write a good commit message
