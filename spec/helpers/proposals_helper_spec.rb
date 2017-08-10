@@ -10,6 +10,15 @@ require 'rails_helper'
 #     end
 #   end
 # end
-RSpec.describe ProposalsHelper, type: :helper do
-  pending "add some examples to (or delete) #{__FILE__}"
+describe ProposalsHelper do
+  let!(:the_pi) { User.create!(first_name: "Alonzo", last_name: "Palonzo", credentials: "MD", email: "thepalonzo@gmail.com", password_digest: "password")}
+  let!(:proposal1) { Proposal.create!(title: "Remember the Time", summary: "When we fell in love, do you remember the time", hypothesis: "If one remembers the time, then the time is remembered", status: "archived", pi_id: the_pi.id) }
+  let!(:proposal2) { Proposal.create!(title: "Remember the Time2", summary: "When we fell in love, do you remember the time2", hypothesis: "If one remembers the time, then the time is remembered2", status: "archived", pi_id: the_pi.id) }
+
+  describe '#archived_proposals' do
+    it 'returns the proposals with archived status' do
+      the_pi_proposals = the_pi.proposals
+      expect(archived_proposals(the_pi_proposals).length). to eq(2)
+    end
+  end
 end
