@@ -2,22 +2,26 @@
 
 <h4> Status:</h4>
 
-  <p> <%= @proposal.status %></p>
+<p> <%= @proposal.status %></p>
 
 <h4> Summary:</h4>
 
-  <p> <%= @proposal.summary %> </p>
+<p> <%= @proposal.summary %> </p>
 
 <h4> Hypothesis:</h4>
 
-  <p> <%= @proposal.hypothesis %> </p>
+<p> <%= @proposal.hypothesis %> </p>
 
 <h4> Experiments:</h4>
 
-  <%= render @experiments %>
+<%= render @experiments %>
+
+<p>Make a new experiment <a href="/proposals/<%= @proposal.id %>/experiments/new"> HERE</a>.</p>
 
 
 <div class="comments">
   <h4> Comments </h4>
   <%= render @comments %>
 </div>
+
+<p>Add a comment to this proposal <a href="/proposals/<%= @proposal.id %>/comments/new"> HERE</a>.</p>
