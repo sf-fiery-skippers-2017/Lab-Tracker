@@ -16,7 +16,9 @@
 
 <%= render @experiments %>
 
-<p>Make a new experiment <a href="/proposals/<%= @proposal.id %>/experiments/new"> HERE</a>.</p>
+<% if logged_in? %>
+  <p>Make a new experiment <a href="/proposals/<%= @proposal.id %>/experiments/new"> HERE</a>.</p>
+<% end %>
 
 
 <div class="comments">
@@ -24,4 +26,6 @@
   <%= render @comments %>
 </div>
 
-<p>Add a comment to this proposal <a href="/proposals/<%= @proposal.id %>/comments/new"> HERE</a>.</p>
+<% if logged_in? %>
+  <p>Add a comment to this proposal <a href="/proposals/<%= @proposal.id %>/comments/new"> HERE</a>.</p>
+<%end %>
