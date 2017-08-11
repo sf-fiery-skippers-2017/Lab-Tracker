@@ -12,6 +12,7 @@
 </table>
 
 
+
 <h1> Archived Proposals</h1>
 <table class="archived-proposals">
   <tr>
@@ -21,3 +22,5 @@
   </tr>
   <%= render archived_proposals(@proposals) %>
 </table>
+
+<%= link_to "Logout", logout_path, method: :delete %>
