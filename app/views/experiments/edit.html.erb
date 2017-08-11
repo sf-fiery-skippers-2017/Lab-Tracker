@@ -1,0 +1,23 @@
+<h3><%= @experiment.proposal.title %></h3>
+<h1><%= @experiment.title %></h1>
+
+<ol>
+  <% @experiment.procedures.each do |procedure| %>
+    <li>
+      <%= procedure.name %>
+      <%= form_for procedure, url: {action: "update"} do |f| %>
+        <%= f.check_box :is_completed, remote: true %>
+      <% end %>
+    </li>
+  <% end %>
+</ol>
+
+<%= form_for @experiment do |f| %>
+  <%= f.label :results %>:
+  <%= f.text_area :results %><br>
+
+  <%= f.label :conclusion %>:
+  <%= f.text_area :conclusion %><br>
+
+  <%= f.submit %>
+<% end %>
