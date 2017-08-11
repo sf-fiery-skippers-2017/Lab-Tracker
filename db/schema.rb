@@ -44,7 +44,6 @@ ActiveRecord::Schema.define(version: 20170809235518) do
   end
 
   create_table "procedures", force: :cascade do |t|
-    t.string "name", null: false
     t.text "steps", null: false
     t.boolean "is_completed", default: false
     t.integer "experiment_id", null: false
