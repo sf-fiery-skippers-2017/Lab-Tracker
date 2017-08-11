@@ -10,6 +10,7 @@
       <ul>
         <li><a class="active" href="/">Home</a></li>
           <% if logged_in? %>
+        <li><a href="/users/<%= current_user.id %>">Profile</a></li>
         <li><a href="/logout">Logout</a></li>
           <% else %>
         <li><a href="/users/new">Register</a></li>
