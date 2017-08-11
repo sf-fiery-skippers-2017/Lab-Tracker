@@ -10,7 +10,8 @@ class ObservationsController < ApplicationController
     if @observation.save
       @experiment = @observation.experiment
       @proposal = @experiment.proposal
-      redirect_to "/proposals/#{@proposal.id}/experiments/#{@experiment.id}"
+      # redirect_to "/proposals/#{@proposal.id}/experiments/#{@experiment.id}"
+      redirect_to proposal_experiment_path(@proposal, @experiment)
     else
       render 'new'
     end
