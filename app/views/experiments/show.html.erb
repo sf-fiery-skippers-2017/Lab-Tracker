@@ -1,17 +1,22 @@
 <h1>Experiment: <%= @experiment.title %></h1>
 <h3>Proposal: <%= @experiment.proposal.title %></h3>
+<% if logged_in? %>
+  <p><%= link_to 'Edit Experiment', edit_proposal_experiment_path(@experiment) %></p>
+<% end %>
 
-<p><span><%= link_to 'Edit Experiment', edit_proposal_experiment_path(@experiment) %></span></p>
 <h4>By: <%= @experiment.lab_staff.last_name %>, <%= @experiment.lab_staff.first_name %></h4>
 
-<h3>Procedures: <span><%= link_to '+ add new procedure', new_experiment_procedure_path(@experiment) %></span></h3>
+<h3>Procedures: 
+<% if logged_in? %>
+  <span><%= link_to '+ add new procedure', new_experiment_procedure_path(@experiment) %>
+  </span>
+<% end %>
+</h3>
 <ol>
   <% @experiment.procedures.each do |procedure| %>
     <li>
-      <%= procedure.steps %>
-      <%= form_for procedure, url: {action: "update"} do |f| %>
-      <label><%= f.check_box :is_completed %>Completed</label><br><br>
-      <% end %>
+      <%= procedure.steps %> (<%= completeness(procedure) %>)
+
     </li>
   <% end %>
 </ol>
@@ -22,9 +27,13 @@
 <h3>Conclusion:</h3>
 <p><%= @experiment.conclusion %></p>
 
-<h3>Observations: <span><%= link_to '+ add new observation', new_experiment_observation_path(@experiment) %>
-  <%=  %>
-</span></h3>
+<h3>Observations: 
+<% if logged_in? %>
+  <span><%= link_to '+ add new observation', new_experiment_observation_path(@experiment) %>
+    <%=  %>
+  </span>
+<% end %>
+</h3>
 <ol>
   <% @experiment.observations.each do |observation| %>
     <li>
@@ -33,7 +42,12 @@
   <% end %>
 </ol>
 
-<h3>Comments: <span><%= link_to '+ add new comment', new_experiment_comment_path(@experiment) %></span></h3>
+<h3>Comments: 
+<% if logged_in? %>
+  <span><%= link_to '+ add new comment', new_experiment_comment_path(@experiment) %>
+  </span>
+<% end %>
+</h3>
 <ul>
   <% @experiment.comments.each do |comment| %>
     <li>
