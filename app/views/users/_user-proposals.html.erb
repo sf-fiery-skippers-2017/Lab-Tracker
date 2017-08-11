@@ -1,0 +1,5 @@
+<ul>
+    <% proposals.each do |proposal| %>
+      <li><%= link_to proposal.title, proposal_experiments_path(proposal) %></li>
+    <% end %>
+<ul>

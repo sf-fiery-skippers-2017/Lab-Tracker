@@ -1,3 +1,5 @@
-<h1>HELLO</h1>
+<h1> Welcome <%= @user.first_name %> </h1>
 
-<%= link_to "Logout", logout_path, method: :delete %>
+<h4> Proposals: </h4>
+
+<%= render partial: 'users/user-proposals', locals: { proposals: @user.proposals } %>
