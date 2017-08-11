@@ -1,0 +1,9 @@
+<h1>New Procedure</h1>
+
+<%= form_for [:experiment, @procedure] do |f| %>
+  <%= f.label :steps %>
+  <%= f.text_area :steps %>
+  <br>
+
+  <%= f.submit "Submit" %>
+<% end %>
