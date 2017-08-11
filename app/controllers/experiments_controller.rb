@@ -29,12 +29,13 @@ class ExperimentsController < ApplicationController
 
   def update
     @experiment.update(experiment_params)
-    redirect_to proposal_experiments_path(@experiment.id)
+    @proposal = @experiment.proposal
+    redirect_to proposal_experiment_path(@proposal, @experiment)
   end
 
   def destroy
     @experiment.destroy
-    redirect_to proposal_experiments_path(@experiment.id)
+    redirect_to proposal_experiments_path(@experiment)
   end
 
   private
