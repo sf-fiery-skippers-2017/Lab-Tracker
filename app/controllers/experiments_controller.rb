@@ -8,7 +8,6 @@ class ExperimentsController < ApplicationController
   end
 
   def show
-
     @comments = @experiment.comments
   end
 
