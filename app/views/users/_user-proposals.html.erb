@@ -1,0 +1,6 @@
+<ul>
+    <% proposals.each do |proposal| %>
+      <li><%= link_to proposal.title, proposal_experiments_path(proposal) %> | <%= proposal.status %> | <%= render partial: 'proposals/drop-down', locals: { proposal: proposal } %></li>
+
+    <% end %>
+<ul>

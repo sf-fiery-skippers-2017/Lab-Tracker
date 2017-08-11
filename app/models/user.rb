@@ -5,4 +5,6 @@ class User < ApplicationRecord
   has_many :proposals, foreign_key: :pi_id
 
   has_secure_password
+
+  validates :first_name, :last_name, :credentials, :email, :password_digest, { presence: true }
 end

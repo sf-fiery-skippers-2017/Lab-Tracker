@@ -1,0 +1,19 @@
+<h1> EDIT PAGE </h1>
+
+
+<%= form_for(@proposal) do |f| %>
+  <%= f.label       :title %>
+  <%= f.text_field  :title %>
+  <br>
+  <%= f.label       :summary %>
+  <%= f.text_area  :summary %>
+  <br><br>
+  <%= f.label       :hypothesis %>
+  <%= f.text_area   :hypothesis %>
+  <br><br>
+  <%= f.label       :status %>
+  <%= f.select :status, ['close','archive', 'in progress', 'open'], :prompt => 'Select One' %>
+  <br><br>
+  <%= f.hidden_field  :pi_id, :value => current_user %>
+  <%= f.submit %>
+<% end %>
