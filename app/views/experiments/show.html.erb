@@ -1,5 +1,5 @@
 <h3>Proposal: <%= @experiment.proposal.title %></h3>
-<h1>Experiment: <%= @experiment.title %></h1>
+<h1>Experiment: <%= @experiment.title %> <span><%= link_to 'Edit Experiment', edit_proposal_experiment_path(@experiment) %></span></h1>
 <h4>By: <%= @experiment.lab_staff.last_name %>, <%= @experiment.lab_staff.first_name %></h4>
 
 <h3>Procedures: <span><%= link_to '+ add new procedure', new_experiment_procedure_path(@experiment) %></span></h3>
