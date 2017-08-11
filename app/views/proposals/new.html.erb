@@ -20,13 +20,11 @@
     <%= f.text_area   :hypothesis %>
     <br>
     <%= f.hidden_field  :status, :value => "open" %>
-    <%= f.hidden_field  :pi_id, :value => current_user %>
+    <%= f.hidden_field  :pi_id, :value => current_user.id %>
     <br>
     <%= f.submit %>
   </div>
 <% end %>
-
-
 
 
 <p> Here at <em> Flaming Hots </em>, we love our contributers commitment to adding value to the organization.</p>

@@ -1,6 +1,9 @@
 <ul>
     <% proposals.each do |proposal| %>
-      <li><%= link_to proposal.title, proposal_experiments_path(proposal) %> | <%= proposal.status %> | <%= render partial: 'proposals/drop-down', locals: { proposal: proposal } %></li>
-
+      <li><%= link_to proposal.title, proposal_experiments_path(proposal) %> | <%= proposal.status %>
+      <% if logged_in? && @user.id == current_user.id %>
+        <%= render partial: 'proposals/drop-down', locals: { proposal: proposal } %>
+      <% end %>
+    </li>
     <% end %>
 <ul>
