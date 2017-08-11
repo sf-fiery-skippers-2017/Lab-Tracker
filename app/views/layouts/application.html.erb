@@ -6,20 +6,22 @@
 
     <%= stylesheet_link_tag    'application', media: 'all' %>
     <%= javascript_include_tag 'application' %>
+    <nav>
+      <ul>
+        <li><a class="active" href="/">Home</a></li>
+          <% if logged_in? %>
+        <li><a href="/logout">Logout</a></li>
+          <% else %>
+        <li><a href="/users/new">Register</a></li>
+        <li><a href="/login">Login</a></li>
+          <% end %>
+      </ul>
+    </nav>
   </head>
 
   <body>
-    <nav>
-      <ul>
-        <% if logged_in? %>
-          <li><a href="/logout">Logout</a></li>
-          <li><a href="/">Home</a></li>
-        <% else %>
-          <li><a href="/users/new">Register</a></li>
-          <li><a href="/login">Login</a></li>
-        <% end %>
-      </ul>
-    </nav>
-    <%= yield %>
+    <div class="container">
+      <%= yield %>
+    </div>
   </body>
 </html>

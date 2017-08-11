@@ -1,10 +1,9 @@
+<h1>Experiment: <%= @experiment.title %></h1>
 <h3>Proposal: <%= @experiment.proposal.title %></h3>
-<h1>Experiment: <%= @experiment.title %> 
 <% if logged_in? %>
-  <span><%= link_to 'Edit Experiment', edit_proposal_experiment_path(@experiment) %>
-  </span>
+  <p><%= link_to 'Edit Experiment', edit_proposal_experiment_path(@experiment) %></p>
 <% end %>
-</h1>
+
 <h4>By: <%= @experiment.lab_staff.last_name %>, <%= @experiment.lab_staff.first_name %></h4>
 
 <h3>Procedures: 
