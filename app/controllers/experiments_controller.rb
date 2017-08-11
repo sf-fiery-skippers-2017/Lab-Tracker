@@ -18,10 +18,11 @@ class ExperimentsController < ApplicationController
   end
 
   def create
-
     @proposal = Proposal.find(params[:proposal_id])
     @experiment = @proposal.experiments.new(experiment_params)
     @experiment.lab_staff_id = session[:user_id]
+    p @experiment.errors
+    p "********************"
     if @experiment.save
       redirect_to proposal_experiment_path(@proposal, @experiment)
     else
@@ -52,7 +53,7 @@ class ExperimentsController < ApplicationController
 
 
   def experiment_params
-    params.require(:experiment).permit(:title, :results, :conclusion)
+    params.require(:experiment).permit(:title)
   end
 
 end
