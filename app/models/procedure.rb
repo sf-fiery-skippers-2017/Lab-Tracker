@@ -1,5 +1,5 @@
 class Procedure < ApplicationRecord
   belongs_to :experiment
 
-  validates :name, :steps, { presence: true }
+  validates :steps, { presence: true }
 end
