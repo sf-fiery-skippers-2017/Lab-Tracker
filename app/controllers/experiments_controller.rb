@@ -1,5 +1,7 @@
 class ExperimentsController < ApplicationController
+
   before_action :set_experiment, only: [:show, :edit, :update, :destroy]
+
 
   def index
     @proposal = Proposal.find(params[:proposal_id])
@@ -16,13 +18,17 @@ class ExperimentsController < ApplicationController
   end
 
   def create
-    @experiment = Experiment.new(experiment_params)
+
+    @proposal = Proposal.find(params[:proposal_id])
+    @experiment = @proposal.experiments.new(experiment_params)
+    @experiment.lab_staff_id = session[:user_id]
     if @experiment.save
-      redirect_to proposal_experiment_path(@experiment)
+      redirect_to proposal_experiment_path(@proposal, @experiment)
     else
       render 'new'
     end
   end
+
 
   def edit
   end
@@ -38,12 +44,15 @@ class ExperimentsController < ApplicationController
     redirect_to proposal_experiments_path(@experiment)
   end
 
+
   private
   def set_experiment
     @experiment = Experiment.find(params[:id])
   end
 
+
   def experiment_params
     params.require(:experiment).permit(:title, :results, :conclusion)
   end
+
 end

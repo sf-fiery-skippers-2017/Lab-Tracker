@@ -1,3 +1,4 @@
+
 <h1>Add procedure</h1>
 
 <% if @procedure && @procedure.errors.any? %>
@@ -8,9 +9,12 @@
   </ul>
 <% end %>
 
+
 <%= form_for [:experiment, @procedure] do |f| %>
-  <%= f.text_area :steps, size: "70x5" %><br>
-  <%= f.hidden_field :experiment_id, value: @experiment.id %>
-  
-  <%= f.submit "Add procedure"%>
+  <%= f.label :steps %>
+  <%= f.text_area :steps %>
+  <br>
+
+  <%= f.submit "Submit" %>
+
 <% end %>
