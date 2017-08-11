@@ -17,9 +17,27 @@ class ProposalsController < ApplicationController
     end
   end
 
+  def edit
+
+    @proposal = Proposal.find(params[:id])
+
+  end
+
+  def update
+  
+    @proposal = Proposal.find(params[:id])
+    @user = @proposal.pi_id
+
+    if @proposal.update(proposal_params)
+      redirect_to controller: 'users', action: 'show', id: @proposal.pi_id
+    else
+      render :edit
+    end
+  end
+
   private
 
   def proposal_params
-    params.require(:proposal).permit(:title, :summary, :hypothesis)
+    params.require(:proposal).permit(:title, :summary, :hypothesis, :status, :pi_id)
   end
 end

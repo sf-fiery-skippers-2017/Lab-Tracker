@@ -13,7 +13,9 @@ Rails.application.routes.draw do
   post   '/login' => 'sessions#create'
   delete '/logout' => 'sessions#destroy'
 
-  get '/proposals/:id/experiments' => 'experiments#show'
+  get '/proposals/:id/experiments' => 'experiments#show' # do we need this
+
+  get '/user/:id' => 'user#show'
 
   root 'proposals#index'
 end

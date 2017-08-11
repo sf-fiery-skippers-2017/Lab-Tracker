@@ -15,10 +15,8 @@ class UsersController < ApplicationController
   end
 
   def show
-
-    p "*" * 50
-    p @user.proposals[0].title
   end
+
 
   private
 
