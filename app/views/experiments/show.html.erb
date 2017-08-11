@@ -16,10 +16,8 @@
 <ol>
   <% @experiment.procedures.each do |procedure| %>
     <li>
-      <%= procedure.steps %>
-      <%= form_for procedure, url: {action: "update"} do |f| %>
-      <label><%= f.check_box :is_completed %>Completed</label><br><br>
-      <% end %>
+      <%= procedure.steps %> (<%= completeness(procedure) %>)
+
     </li>
   <% end %>
 </ol>
