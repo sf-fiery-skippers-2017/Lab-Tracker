@@ -1,4 +1,26 @@
-<h1> proposals </h1>
+<h1> Current Proposals </h1>
+<% if logged_in? %>
+<%= button_to "Add", new_proposal_path %>
+<% end %>
+<table class="active-proposals">
+  <tr>
+    <th></th>
+    <th>Proposals</th>
+    <th>Status</th>
+  </tr>
+  <%= render @proposals - archived_proposals(@proposals) %>
+</table>
 
-<%= render @proposals %>
+
+
+<h1> Archived Proposals</h1>
+<table class="archived-proposals">
+  <tr>
+    <th></th>
+    <th>Proposals</th>
+    <th>Status</th>
+  </tr>
+  <%= render archived_proposals(@proposals) %>
+</table>
+
 <%= link_to "Logout", logout_path, method: :delete %>

@@ -1,0 +1,31 @@
+<h1> Create a new Proposal </h1>
+
+<% if @proposal && @proposal.errors.any? %>
+  <ul>
+  <% @proposal.errors.full_messages.each do |error_message| %>
+    <li><%= error_message %></li>
+  <% end %>
+  </ul>
+<% end %>
+<div>
+  <%= form_for(@proposal) do |f| %>
+    <%= f.label       :title %>
+    <%= f.text_field  :title %>
+    <br>
+    <%= f.label       :summary %>
+    <%= f.text_field  :summary %>
+    <br>
+    <%= f.label       :hypothesis %>
+    <%= f.text_area   :hypothesis %>
+    <br>
+    <%= f.hidden_field  :status, :value => "open" %>
+    <%= f.hidden_field  :pi_id, :value => current_user %>
+    <br>
+    <%= f.submit %>
+  </div>
+<% end %>
+
+
+
+
+<p> Here at <em> Flaming Hots </em>, we love our contributers commitment to adding value to the organization.</p>
