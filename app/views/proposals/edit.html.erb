@@ -14,6 +14,6 @@
   <%= f.label       :status %>
   <%= f.select :status, ['close','archive', 'in progress', 'open'], :prompt => 'Select One' %>
   <br><br>
-  <%= f.hidden_field  :pi_id, :value => current_user %>
+  <%= f.hidden_field  :pi_id, :value => current_user.id %>
   <%= f.submit %>
 <% end %>

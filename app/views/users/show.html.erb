@@ -2,4 +2,4 @@
 
 <h4> Your Proposals: </h4>
 
-<%= render partial: 'users/user-proposals', locals: { proposals: @user.proposals } %>
+  <%= render partial: 'users/user-proposals', locals: { proposals: @user.proposals, user: @user } %>

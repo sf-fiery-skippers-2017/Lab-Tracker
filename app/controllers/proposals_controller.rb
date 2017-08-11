@@ -17,6 +17,11 @@ class ProposalsController < ApplicationController
     end
   end
 
+  def show
+    @proposal = Proposal.find(params[:id])
+    redirect_to controller: 'users', action: 'show', id: @proposal.pi_id
+  end
+
   def edit
 
     @proposal = Proposal.find(params[:id])
@@ -24,7 +29,7 @@ class ProposalsController < ApplicationController
   end
 
   def update
-  
+
     @proposal = Proposal.find(params[:id])
     @user = @proposal.pi_id
 
