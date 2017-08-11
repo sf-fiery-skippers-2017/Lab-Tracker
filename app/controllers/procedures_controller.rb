@@ -5,13 +5,16 @@ class ProceduresController < ApplicationController
   end
 
   def new
+    @experiment = Experiment.find(params[:experiment_id])
     @procedure = Procedure.new
   end
 
   def create
     @procedure = Procedure.new(procedure_params)
     if @procedure.save
-      redirect_to proposal_experiment_path(@experiment)
+      @experiment = @procedure.experiment
+      @proposal = @experiment.proposal
+      redirect_to "/proposals/#{@proposal.id}/experiments/#{@experiment.id}"
     else
       render 'new'
     end
@@ -19,6 +22,6 @@ class ProceduresController < ApplicationController
 
   private
   def procedure_params
-    params.require(:procedure).permit()
+    params.require(:procedure).permit(:steps, :experiment_id)
   end
 end

@@ -59,7 +59,6 @@ end
 
 80.times do
   procedure = {
-    name: Faker::Hacker.adjective + " " + Faker::Hacker.verb,
     steps: Faker::Hipster.sentence,
     is_completed: [true,false].sample,
     experiment_id: Experiment.all.sample.id
