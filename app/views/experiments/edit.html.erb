@@ -4,19 +4,20 @@
 <ol>
   <% @experiment.procedures.each do |procedure| %>
     <li>
+      <%= procedure.steps %>
       <%= form_for procedure, url: {action: "update"} do |f| %>
-        <%= f.check_box :is_completed, remote: true %>
+        <label><%= f.check_box :is_completed %>Completed</label>
       <% end %>
     </li>
   <% end %>
 </ol>
 
 <%= form_for @experiment do |f| %>
-  <%= f.label :results %>:
-  <%= f.text_area :results %><br>
+  <%= f.label :results, 'Results:' %><br>
+  <%= f.text_area :results, size: "80x5" %><br>
 
-  <%= f.label :conclusion %>:
-  <%= f.text_area :conclusion %><br>
+  <%= f.label :conclusion, 'Conclusion:' %><br>
+  <%= f.text_area :conclusion, size: "80x5" %><br>
 
   <%= f.submit %>
 <% end %>
