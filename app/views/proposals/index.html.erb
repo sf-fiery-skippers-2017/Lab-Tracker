@@ -1,7 +1,4 @@
 <h1> Current Proposals </h1>
-<% if logged_in? %>
-<%= link_to "Add", new_proposal_path %>
-<% end %>
 <table class="active-proposals">
   <tr>
     <th></th>
@@ -9,8 +6,10 @@
     <th>Status</th>
   </tr>
   <%= render @proposals - archived_proposals(@proposals) %>
-</table>
-
+</table><br>
+<% if logged_in? %>
+<div class="new-proposal"><%= link_to "Add New Proposal", new_proposal_path %></div>
+<% end %>
 
 <h1> Archived Proposals</h1>
 <table class="archived-proposals">
@@ -21,6 +20,3 @@
   </tr>
   <%= render archived_proposals(@proposals) %>
 </table>
-<% if logged_in? %>
-<%= link_to "Logout", logout_path, method: :delete %>
-<% end %>
