@@ -23,6 +23,6 @@ class ProceduresController < ApplicationController
 
   private
   def procedure_params
-    params.require(:procedure).permit(:steps, :experiment_id)
+    params.require(:procedure).permit(:steps, :experiment_id, :is_completed)
   end
 end
