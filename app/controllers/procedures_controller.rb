@@ -1,5 +1,5 @@
 class ProceduresController < ApplicationController
-  before_action :set_procedures, only: [:show, :edit, :update, :destroy]
+ before_action :set_procedures, only: [:show, :edit, :update, :destroy]
   def index
     @experiment = Experiment.find(params[:experiment_id])
     @procedures = @experiment.procedures
@@ -10,8 +10,10 @@ class ProceduresController < ApplicationController
   end
 
   def new
+    @experiment = Experiment.find(params[:experiment_id])
     @procedure = Procedure.new
   end
+
 
   def edit
   end
@@ -21,17 +23,25 @@ class ProceduresController < ApplicationController
     @procedure = @experiment.procedures.new(procedure_params)
     if @procedure.save
       redirect_to experiment_procedures_path(@experiment)
+
     else
       render 'new'
     end
   end
-
-  def update
-  end
+  
+   def update
+   end
 
   def destroy
   end
+
   private
+  def procedure_params
+    params.require(:procedure).permit(:steps, :experiment_id, :is_completed)
+  end
+
+ 
+  
   def set_procedures
     @procedure = Procedure.find(params[:id])
   end

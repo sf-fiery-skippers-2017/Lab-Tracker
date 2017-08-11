@@ -15,7 +15,7 @@ Comment.delete_all
     last_name:      Faker::Name.last_name,
     email:          Faker::Internet.safe_email(:first_name),
     credentials:    Faker::Educator.course,
-    password:"password"
+    password:       "password"
   }
   User.create(user)
 end
