@@ -6,7 +6,7 @@
 <ol>
   <% @experiment.procedures.each do |procedure| %>
     <li>
-      <%= procedure.name %>
+      <%= procedure.steps %>
       <%= form_for procedure, url: {action: "update"} do |f| %>
       <label><%= f.check_box :is_completed %>Completed</label><br><br>
       <% end %>
@@ -17,10 +17,12 @@
 <h3>Results:</h3>
 <p><%= @experiment.results %></p>
 
-<h3>Conclusion: <span><%= link_to '+ add new observation', new_experiment_observation_path(@experiment) %></span></h3>
+<h3>Conclusion:</h3>
 <p><%= @experiment.conclusion %></p>
 
-<h3>Observations:</h3>
+<h3>Observations: <span><%= link_to '+ add new observation', new_experiment_observation_path(@experiment) %>
+  <%=  %>
+</span></h3>
 <ol>
   <% @experiment.observations.each do |observation| %>
     <li>
